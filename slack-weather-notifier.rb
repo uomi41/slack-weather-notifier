@@ -2,7 +2,8 @@ require 'json'
 require 'open-uri'
 require 'slack/incoming/webhooks'
 
-uri = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=400010'
+city = ENV['CITY_CODE']
+uri = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=' + city
 
 res     = JSON.load(open(uri).read)
 title   = res['title']
